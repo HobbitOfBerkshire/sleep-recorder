@@ -11,6 +11,6 @@ describe('Navbar Component', () => {
       </MemoryRouter>,
     );
     expect(screen.getByText('Records')).toBeInTheDocument();
-    expect(screen.getByText('Other Page')).toBeInTheDocument();
+    expect(screen.getByText('Add new record')).toBeInTheDocument();
   });
 });
