@@ -3,7 +3,7 @@ export interface Record {
   name: string;
   gender: string;
   duration: number;
-  timestamp: number;
+  date: string;
 }
 
 export interface User {

@@ -22,40 +22,26 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     duration REAL,
-    timestamp INTEGER,
+    date TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id)
   );
 `);
 
 console.log('Database initialized.');
 
-// Day timestamps (ugly but test data)
-const oneDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 60 * 60 * 1000) / 1000,
-);
-const twoDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 2 * 60 * 60 * 1000) / 1000,
-);
-const threeDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 3 * 60 * 60 * 1000) / 1000,
-);
-const fourDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 4 * 60 * 60 * 1000) / 1000,
-);
-const fiveDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 5 * 60 * 60 * 1000) / 1000,
-);
-const sixDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 6 * 60 * 60 * 1000) / 1000,
-);
-const sevenDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 7 * 60 * 60 * 1000) / 1000,
-);
-const eightDayAgoTimestamp = Math.floor(
-  (Date.now() - 24 * 8 * 60 * 60 * 1000) / 1000,
-);
+const formatDate = (date: Date) => date.toISOString().split('T')[0];
 
-const currentTimestamp = Math.floor(Date.now() / 1000);
+// DATES
+
+const oneDayAgo = formatDate(new Date(Date.now() - 24 * 60 * 60 * 1000));
+const twoDaysAgo = formatDate(new Date(Date.now() - 24 * 2 * 60 * 60 * 1000));
+const threeDaysAgo = formatDate(new Date(Date.now() - 24 * 3 * 60 * 60 * 1000));
+const fourDaysAgo = formatDate(new Date(Date.now() - 24 * 4 * 60 * 60 * 1000));
+const fiveDaysAgo = formatDate(new Date(Date.now() - 24 * 5 * 60 * 60 * 1000));
+const sixDaysAgo = formatDate(new Date(Date.now() - 24 * 6 * 60 * 60 * 1000));
+const sevenDaysAgo = formatDate(new Date(Date.now() - 24 * 7 * 60 * 60 * 1000));
+const eightDaysAgo = formatDate(new Date(Date.now() - 24 * 8 * 60 * 60 * 1000));
+const today = formatDate(new Date());
 
 // USERS
 
@@ -79,58 +65,58 @@ const barryId = (barryIdRow as { id: number }).id;
 // KIERAN RECORDS
 
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${currentTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${today}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${oneDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${oneDayAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${twoDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${twoDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${threeDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${threeDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${fourDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${fourDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${fiveDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${fiveDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${sixDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${sixDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${sevenDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${sevenDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${kieranId}, 4, ${eightDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${kieranId}, 4, '${eightDaysAgo}');
 `);
 
 // BARRY RECORDS
 
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 1, ${currentTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 1, '${today}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 2, ${oneDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 2, '${oneDayAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 3, ${twoDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 3, '${twoDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 4, ${threeDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 4, '${threeDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 5, ${fourDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 5, '${fourDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 6, ${fiveDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 6, '${fiveDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 7, ${sixDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 7, '${sixDaysAgo}');
 `);
 db.exec(`
-  INSERT INTO records (user_id, duration, timestamp) VALUES (${barryId}, 8, ${sevenDayAgoTimestamp});
+  INSERT INTO records (user_id, duration, date) VALUES (${barryId}, 8, '${sevenDaysAgo}');
 `);
 
 console.log('Populated Data');

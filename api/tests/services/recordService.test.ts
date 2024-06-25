@@ -26,14 +26,14 @@ describe('getAllRecords', () => {
       {
         id: 1,
         duration: 8,
-        timestamp: 1625068800,
+        date: '2024-06-12',
         name: 'John Doe',
         gender: 'Male',
       },
       {
         id: 2,
         duration: 7,
-        timestamp: 1625155200,
+        date: '2024-06-12',
         name: 'Jane Smith',
         gender: 'Female',
       },
@@ -80,7 +80,7 @@ describe('addRecord', () => {
     expect(mockStatement.run).toHaveBeenCalledWith(
       mockUserId,
       mockDuration,
-      expect.any(Number),
+      expect.any(String),
     );
   });
 

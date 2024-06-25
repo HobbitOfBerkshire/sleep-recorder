@@ -1,13 +1,13 @@
 import db from './index';
 import { Record } from '../types';
 import { createUser, getUserByNameAndGender } from './userService';
-import { parseISO, startOfDay } from 'date-fns';
+import { format, parseISO, startOfDay } from 'date-fns';
 
 export const getAllRecords = (): Record[] => {
   const records = db
     .prepare(
       `
-      SELECT records.id, records.duration, records.timestamp, users.name, users.gender
+      SELECT records.id, records.duration, records.date, users.name, users.gender
       FROM records
       JOIN users ON records.user_id = users.id
     `,
@@ -23,7 +23,7 @@ export const addRecord = (
   duration: number,
   date: string,
 ): void => {
-  const dateTimestamp = Math.floor(startOfDay(parseISO(date)).getTime() / 1000);
+  const formattedDate = format(startOfDay(parseISO(date)), 'yyyy-MM-dd');
 
   let user = getUserByNameAndGender(name, gender);
   if (!user) {
@@ -31,6 +31,6 @@ export const addRecord = (
   }
 
   db.prepare(
-    'INSERT INTO records (user_id, duration, timestamp) VALUES (?, ?, ?)',
-  ).run(user.id, duration, dateTimestamp);
+    'INSERT INTO records (user_id, duration, date) VALUES (?, ?, ?)',
+  ).run(user.id, duration, formattedDate);
 };

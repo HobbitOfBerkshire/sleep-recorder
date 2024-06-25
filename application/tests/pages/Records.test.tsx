@@ -13,14 +13,14 @@ describe('RecordsPage Component', () => {
         name: 'Record 1',
         duration: 5,
         gender: 'Male',
-        timestamp: Date.parse('2024-06-24'),
+        date: '2023-04-01',
       },
       {
         id: 2,
         name: 'Record 2',
         duration: 7,
         gender: 'Female',
-        timestamp: Date.parse('2024-06-23'),
+        date: '2023-04-01',
       },
     ];
 

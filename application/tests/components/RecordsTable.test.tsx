@@ -15,21 +15,21 @@ describe('RecordsTable Component', () => {
         name: 'John Doe',
         gender: 'Male',
         duration: 6,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
       {
         id: 2,
         name: 'Jane Doe',
         gender: 'Female',
         duration: 8,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
       {
         id: 3,
         name: 'John Doe',
         gender: 'Male',
         duration: 7,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
     ];
 
@@ -51,21 +51,21 @@ describe('RecordsTable Component', () => {
         name: 'John Doe',
         gender: 'Male',
         duration: 6,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
       {
         id: 2,
         name: 'Jane Doe',
         gender: 'Female',
         duration: 8,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
       {
         id: 3,
         name: 'John Doe',
         gender: 'Male',
         duration: 7,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
     ];
 
@@ -89,7 +89,7 @@ describe('RecordsTable Component', () => {
         name: 'John Doe',
         gender: 'Male',
         duration: 6,
-        timestamp: Date.now() / 1000,
+        date: '2023-04-01',
       },
     ];
 

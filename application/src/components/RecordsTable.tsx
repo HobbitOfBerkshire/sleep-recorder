@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Record } from '../types';
 import * as echarts from 'echarts';
+import { parseISO } from 'date-fns';
 
 interface Props {
   records: Record[];
@@ -39,7 +40,8 @@ const groupRecords = (records: Record[]): GroupRecord[] => {
   // populate past seven day data
   records.forEach((record) => {
     const key = `${record.name}-${record.gender}`;
-    const date = new Date(record.timestamp * 1000);
+    const date = parseISO(record.date);
+
     const today = new Date();
     const dayDiff = Math.floor(
       (today.getTime() - date.getTime()) / (1000 * 3600 * 24),
