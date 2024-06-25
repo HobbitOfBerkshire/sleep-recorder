@@ -28,6 +28,8 @@ The application allows users to add sleep records, view recorded data in a table
     cd ..
     cd application
     npm install
+    cd ..
+    npm install
 
 3. **Running the application:**
 
