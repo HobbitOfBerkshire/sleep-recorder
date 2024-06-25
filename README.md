@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a full-stack web application for recording sleep data. The frontend is built using React with TypeScript, and the backend is built using Node.js and Express. The application allows users to add sleep records, view recorded data in a table format, and visualize sleep durations over the past seven days using bar charts.
+The application allows users to add sleep records, view recorded data in a table format, and visualize sleep durations over the past seven days using bar charts.
 
 ## Setup Instructions
 
