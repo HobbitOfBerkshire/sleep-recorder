@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/form">
-                Other Page
+                Add new record
               </Link>
             </li>
           </ul>
